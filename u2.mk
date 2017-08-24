@@ -102,7 +102,7 @@ DEVICE_PACKAGE_OVERLAYS := \
 
 # Camera
 PRODUCT_PACKAGES += \
-    camera.u2 \
+    libcamera_parameters_ext \
     libqomx_core \
     libmmcamera_interface \
     libmmjpeg_interface \
@@ -128,7 +128,8 @@ PRODUCT_PACKAGES += \
 
 # Widevine
 PRODUCT_PACKAGES += \
-    libshim_wvm
+    libshim_wvm \
+    libshim_camera
 
 PRODUCT_PACKAGES += \
     hostapd \
