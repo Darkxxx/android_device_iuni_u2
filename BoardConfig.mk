@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2013 The Android Open-Source Project
+# Copyright (C) 2017 LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -60,10 +60,10 @@ MAX_EGL_CACHE_SIZE := 2048*1024
 
 # Time Daemon
 BOARD_USES_QC_TIME_SERVICES := true
-TARGET_POWERHAL_VARIANT             := qcom
+TARGET_POWERHAL_VARIANT := qcom
 
 # Audio
-BOARD_USES_ALSA_AUDIO                      := true
+BOARD_USES_ALSA_AUDIO := true
 AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
 
 # Camera
