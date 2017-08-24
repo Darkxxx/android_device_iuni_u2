@@ -226,9 +226,9 @@ PRODUCT_PACKAGES += \
  PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml \
     frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
-    device/ıunı/u2/nfc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
-    device/ıunı/u2/nfc/libnfc-brcm-20791b05.conf:system/etc/libnfc-brcm-20791b05.conf \
-    device/ıunı/u2/nfc/nfcee_access.xml:system/etc/nfcee_access.xml
+    device/iuni/u2/nfc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
+    device/iuni/u2/nfc/libnfc-brcm-20791b05.conf:system/etc/libnfc-brcm-20791b05.conf \
+    device/iuni/u2/nfc/nfcee_access.xml:system/etc/nfcee_access.xml
 
 # bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -325,8 +325,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.product.first_api_level=19 \
     persist.demo.hdmirotationlock=false \
     ro.com.google.gmsversion=7.1_r7 \
-    ro.com.google.clientidbase=android-ıunı \
-    ro.com.google.clientidbase.ms=android-ıunı \
-    ro.com.google.clientidbase.am=android-ıunı \
-    ro.com.google.clientidbase.gmm=android-ıunı \
-    ro.com.google.clientidbase.yt=android-ıunı
+    ro.com.google.clientidbase=android-iuni \
+    ro.com.google.clientidbase.ms=android-iuni \
+    ro.com.google.clientidbase.am=android-iuni \
+    ro.com.google.clientidbase.gmm=android-iuni \
+    ro.com.google.clientidbase.yt=android-iuni
