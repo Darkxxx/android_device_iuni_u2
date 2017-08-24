@@ -59,7 +59,7 @@
             5 - In-app Search
          This needs to match the constants in
          policy/src/com/android/internal/policy/impl/PhoneWindowManager.java -->
-    <integer name="config_longPressOnHomeBehavior">2</integer>
+    <integer name="config_longPressOnHomeBehavior">1</integer>
 
     <integer name="config_longPressOnMenuBehavior">3</integer>
 
@@ -232,15 +232,25 @@
          Zone N + 1     array[N] <= LUX < infinity
          Must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLevels">
+        <item>2</item>
         <item>10</item>
-        <item>64</item>
-        <item>140</item>
-        <item>350</item>
-        <item>600</item>
+        <item>50</item>
+        <item>90</item>
+        <item>100</item>
+        <item>150</item>
+        <item>200</item>
+        <item>300</item>
+        <item>400</item>
+        <item>500</item>
+        <item>800</item>
         <item>1000</item>
-        <item>1600</item>
+        <item>1300</item>
+        <item>2000</item>
         <item>3000</item>
-        <item>10000</item>
+        <item>4000</item>
+        <item>8000</item>
+        <item>20000</item>
+        <item>30000</item>
     </integer-array>
 
     <!-- Array of output values for LCD backlight corresponding to the LUX values
@@ -248,16 +258,26 @@
          than the size of the config_autoBrightnessLevels array.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>13</item>   <!-- 0-1 -->
-        <item>26</item>   <!-- 1-4 -->
-        <item>73</item>   <!-- 4-40 -->
-        <item>88</item>   <!-- 40-350 -->
-        <item>130</item>  <!-- 350-600 -->
-        <item>167</item>  <!-- 600-1000 -->
-        <item>204</item>  <!-- 1000-1600 -->
-        <item>240</item>  <!-- 1600-3000 -->
-        <item>254</item>  <!-- 3000-10000 -->
-        <item>255</item>  <!-- 10000+ -->
+        <item>6</item>
+        <item>9</item>
+        <item>19</item>
+        <item>36</item>
+        <item>63</item>
+        <item>70</item>
+        <item>80</item>
+        <item>84</item>
+        <item>88</item>
+        <item>100</item>
+        <item>110</item>
+        <item>132</item>
+        <item>147</item>
+        <item>154</item>
+        <item>205</item>
+        <item>220</item>
+        <item>225</item>
+        <item>235</item>
+        <item>245</item>
+        <item>255</item>
     </integer-array>
 
     <!-- Minimum screen brightness setting allowed by the power manager.
@@ -275,7 +295,7 @@
     <!-- Screen brightness used to dim the screen when the user activity
          timeout expires.  May be less than the minimum allowed brightness setting
          that can be set by the user. -->
-    <integer name="config_screenBrightnessDim">10</integer>
+    <integer name="config_screenBrightnessDim">2</integer>
 
     <!-- Indicate the device's Smart Cover coordinates.
          If none are provided, then the feature will be disabled.
@@ -321,17 +341,16 @@
     <bool name="config_supportDoubleTapWake">true</bool>
 
     <string-array name="config_mobile_tcp_buffers">
-        <item>"lte:2097152,4194304,8388608,262144,524288,1048576"</item>
-        <item>"lte_ca:2097152,4194304,8388608,262144,524288,1048576"</item>
-        <item>"umts:4094,87380,1220608,4096,16384,1220608"</item>
-        <item>"hspa:4094,87380,1220608,4096,16384,1220608"</item>
-        <item>"hsupa:4094,87380,1220608,4096,16384,1220608"</item>
-        <item>"hsdpa:4094,87380,2441216,4096,16384,2441216"</item>
-        <item>"hspap:4094,87380,1220608,4096,16384,1220608"</item>
-        <item>"edge:4093,26280,35040,4096,16384,35040"</item>
-        <item>"gprs:4092,8760,11680,4096,8760,11680"</item>
-        <item>"evdo:4094,87380,1048576,4096,16384,262144"</item>
-        <item>"ehrpd:4094,87380,1048576,4096,16384,262144"</item>
+        <item>umts:131072,262144,1452032,4096,16384,399360</item>
+        <item>hspa:131072,262144,2441216,4096,16384,399360</item>
+        <item>hsupa:131072,262144,2441216,4096,16384,399360</item>
+        <item>hsdpa:131072,262144,2441216,4096,16384,399360</item>
+        <item>hspap:131072,262144,2441216,4096,16384,399360</item>
+        <item>edge:16384,32768,131072,4096,16384,65536</item>
+        <item>gprs:4096,8192,24576,4096,8192,24576</item>
+        <item>1xrtt:16384,32768,131070,4096,16384,102400</item>
+        <item>evdo:131072,262144,1048576,4096,16384,524288</item>
+        <item>lte:524288,1048576,8388608,262144,524288,4194304</item>
     </string-array>
 
     <!-- Configure wifi tcp buffersizes in the form:
@@ -339,8 +358,44 @@
     <string name="config_wifi_tcp_buffers" translatable="false">524288,2097152,4194304,262144,524288,1048576</string>
 
     <!-- Our modem doesn't support this query yet -->
-    <string name="config_radio_access_family">GPRS|EDGE|UMTS|HSDPA|HSUPA|HSPA|LTE|HSPAP|GSM|TD_SCDMA|WCDMA|LTE_CA</string>
+<string translatable="false" name="config_radio_access_family">GSM | WCDMA </string>
 
-    <!-- Enable blur support >
-    <bool name="config_ui_blur_enabled">true</bool-->
+    <!-- Enable blur support -->
+    <bool name="config_ui_blur_enabled">true</bool>
+    
+    <!-- Default LED on time for notification LED in milliseconds. -->
+    <integer name="config_defaultNotificationLedOn">500</integer>
+
+    <!-- Default LED off time for notification LED in milliseconds. -->
+    <integer name="config_defaultNotificationLedOff">2000</integer>
+ 
+    <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
+    <bool name="config_intrusiveNotificationLed">true</bool>
+
+    <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
+    <bool name="config_intrusiveBatteryLed">true</bool>
+ 
+    <!-- Does the notification LED support multiple colors? Used to decide if the user can change the colors -->
+    <bool name="config_multiColorNotificationLed">true</bool>
+
+    <!-- Does the battery LED support multiple colors? Used to decide if the user can change the colors -->
+    <bool name="config_multiColorBatteryLed">true</bool>
+
+    <!-- Set this to true to enable the platform's auto-power-save modes -->
+    <bool name="config_enableAutoPowerModes">true</bool>
+
+    <!-- Disable button backlight settings. -->
+    <integer name="config_buttonBrightnessSettingDefault">40</integer>
+
+    <!-- Boolean indicating whether Hotspot 2.0/Passpoint and ANQP queries is enabled -->
+    <bool translatable="false" name="config_wifi_hotspot2_enabled">true</bool>
+
+    <!-- Flag specifying whether VoLTE is available on device -->
+    <bool name="config_device_volte_available">true</bool>
+    
+    <!-- Flag indicating if the speed up audio on mt call code should be executed -->
+    <bool name="config_speed_up_audio_on_mt_calls">true</bool>
+    <
+    <bool name="config_speed_up_audio_on_mt_calls">true</bool>
+    
 </resources>
