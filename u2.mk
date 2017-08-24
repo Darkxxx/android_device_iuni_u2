@@ -102,7 +102,7 @@ DEVICE_PACKAGE_OVERLAYS := \
 
 # Camera
 PRODUCT_PACKAGES += \
-    camera.msm8974 \
+    camera.u2 \
     libqomx_core \
     libmmcamera_interface \
     libmmjpeg_interface \
@@ -278,6 +278,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # qcom
 PRODUCT_PROPERTY_OVERRIDES += \
+    ro.qc.sdk.camera.facialproc=true \
+    ro.qc.sdk.gestures.camera=false \
+    ro.qti.sdk.sensors.gestures=true \
     camera.disable_zsl_mode=1 \
     camera2.portability.force_api=1 \
     media.stagefright.legacyencoder=true \
@@ -309,6 +312,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #system prop for switching gps driver to qmi
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.gps.qmienabled=true
+    
+# Cell Broadcasts
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.cellbroadcast.emergencyids=0-65534
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.selinux=1 \
