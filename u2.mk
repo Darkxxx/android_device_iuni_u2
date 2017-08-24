@@ -254,6 +254,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # QMI
 PRODUCT_PROPERTY_OVERRIDES += \
+    persist.data.tcpackprio.enable=true \
     persist.data.mode=concurrent \
     persist.data.netmgrd.qos.enable=true \
     rild.libpath=/vendor/lib/libril-qc-qmi-1.so \
@@ -285,7 +286,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Enable AAC 5.1 output
 PRODUCT_PROPERTY_OVERRIDES += \
-    media.aac_51_output_enabled=true
+    media.aac_51_output_enabled=true \
+    mm.enable.smoothstreaming=true
 
 # Audio Configuration
 PRODUCT_PROPERTY_OVERRIDES += \
