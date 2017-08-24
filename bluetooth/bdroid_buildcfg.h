@@ -1,10 +1,10 @@
 /*
  *
- *  Copyright (c) 2013, The Linux Foundation. All rights reserved.
+ *  Copyright (c) 2017. The Linux Foundation. All rights reserved.
  *  Not a Contribution, Apache license notifications and license are retained
  *  for attribution purposes only.
  *
- * Copyright (C) 2012 The Android Open Source Project
+ * Copyright (C) 2017 LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
