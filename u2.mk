@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2013 The Android Open-Source Project
+# Copyright (C) 2017 LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -100,11 +100,23 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 DEVICE_PACKAGE_OVERLAYS := \
     device/iuni/u2/overlay
 
+# Camera
+PRODUCT_PACKAGES += \
+    camera.msm8974 \
+    libqomx_core \
+    libmmcamera_interface \
+    libmmjpeg_interface \
+    mm-jpeg-interface-test \
+    mm-qcamera-app
+
+# Charging Mode
+PRODUCT_PACKAGES += \
+    charger_res_images
+
 # Data
 PRODUCT_PACKAGES += \
     libxml2 \
-    librmnetctl \
-    libcnefeatureconfig
+    librmnetctl
 
 PRODUCT_PACKAGES += \
     hostapd_default.conf \
@@ -228,10 +240,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # QMI
 PRODUCT_PROPERTY_OVERRIDES += \
+    persist.data.mode=concurrent \
     persist.data.netmgrd.qos.enable=true \
     rild.libpath=/vendor/lib/libril-qc-qmi-1.so \
     ro.use_data_netmgrd=true \
-    ro.telephony.default_network=3 \
+    ro.telephony.default_network=0 \
     persist.radio.apm_sim_not_pwdn=1 \
     persist.radio.add_power_save=1 \
     ro.telephony.call_ring.multiple=0 \
@@ -250,6 +263,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # qcom
 PRODUCT_PROPERTY_OVERRIDES += \
+    camera.disable_zsl_mode=1 \
     camera2.portability.force_api=1 \
     media.stagefright.legacyencoder=true \
     media.stagefright.less-secure=true \
@@ -282,4 +296,24 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.selinux=1 \
-    ro.sf.lcd_density=480
+    ro.sf.lcd_density=480 \
+    ro.com.google.networklocation=1 \
+    ro.com.google.locationfeatures=1 \
+    pm.sleep_mode=1 \
+    persist.sys.strictmode.disable=true \
+    persist.sys.strictmode.visual=0 \
+    persist.timed.enable=true \
+    ro.data.large_tcp_window_size=true \
+    persist.fuse_sdcard=true \
+    ro.com.android.mobiledata=true \
+    ro.regionalization.support=yes \
+    telephony.lteOnCdmaDevice=1 \
+    net.tethering.noprovisioning=true \
+    ro.product.first_api_level=19 \
+    persist.demo.hdmirotationlock=false \
+    ro.com.google.gmsversion=7.1_r7 \
+    ro.com.google.clientidbase=android-ıunı \
+    ro.com.google.clientidbase.ms=android-ıunı \
+    ro.com.google.clientidbase.am=android-ıunı \
+    ro.com.google.clientidbase.gmm=android-ıunı \
+    ro.com.google.clientidbase.yt=android-ıunı
