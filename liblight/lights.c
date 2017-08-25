@@ -107,8 +107,8 @@ static int is_qpnp_device(void)
 {
     char value[PROPERTY_VALUE_MAX] = {'\0'};
 
-    if (property_get("ro.oppo.device", value, NULL)) {
-        if (!strcmp(value, "find7s")) {
+    if (property_get("ro.cm.device", value, NULL)) {
+        if (!strcmp(value, "u2")) {
 	         return 1;
 	      }
         if (!strcmp(value, "n3")) {
@@ -280,7 +280,7 @@ set_speaker_light_locked_qpnp(struct light_device_t* dev,
                 break;
             case LIGHT_FLASH_NONE:
             default:
-                onMS = 255;
+                onMS = 0;
                 offMS = 0;
                 break;
         }
@@ -404,7 +404,7 @@ set_light_attention(struct light_device_t* dev,
      * https://github.com/CyanogenMod/android_device_samsung_d2-common/commit/6886bdbbc2417dd605f9818af2537c7b58491150
     */
     if (state->flashMode == LIGHT_FLASH_HARDWARE) {
-        if (g_attention.flashOnMS > 255 && g_attention.flashOffMS == 0) {
+        if (g_attention.flashOnMS > 0 && g_attention.flashOffMS == 0) {
             g_attention.flashMode = LIGHT_FLASH_NONE;
         }
     } else if (state->flashMode == LIGHT_FLASH_NONE) {
@@ -497,5 +497,5 @@ struct hw_module_t HAL_MODULE_INFO_SYM = {
     .version_minor = 0,
     .id = LIGHTS_HARDWARE_MODULE_ID,
     .name = "iuni u2/s/op lights HAL",
-    .author = "Google, Inc., LineageOD",
+    .author = "Google, Inc., LineageOS",
     .methods = &lights_module_methods,
