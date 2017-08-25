@@ -108,6 +108,10 @@ PRODUCT_PACKAGES += \
     libmmjpeg_interface \
     mm-jpeg-interface-test \
     mm-qcamera-app
+    
+# Jelly package
+PRODUCT_PACKAGES += \
+    Jelly
 
 # Charging Mode
 PRODUCT_PACKAGES += \
@@ -128,9 +132,8 @@ PRODUCT_PACKAGES += \
 
 # Widevine
 PRODUCT_PACKAGES += \
-    libshim_wvm \
-    libshim_camera
-
+    libshim_wvm
+    
 PRODUCT_PACKAGES += \
     hostapd \
     wcnss_service \
@@ -340,4 +343,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.clientidbase.ms=android-iuni \
     ro.com.google.clientidbase.am=android-iuni \
     ro.com.google.clientidbase.gmm=android-iuni \
-    ro.com.google.clientidbase.yt=android-iuni
+    ro.com.google.clientidbase.yt=android-iuni \
+    persist.debug.wfd.enable=1 \
+    persist.sys.wfd.virtual=0
