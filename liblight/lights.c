@@ -60,35 +60,18 @@ char const*const BLUE_LED_FILE
 char const*const LCD_FILE
         = "/sys/class/leds/lcd-backlight/brightness";
 
-const char *const BUTTONS_FILE
-        = "/sys/class/leds/kpdbl-pwm-1/brightness";
+char const*const BUTTONS_FILE
+        = "/sys/class/leds/button-backlight/brightness";
+
+char const*const RED_FREQ_FILE
+        = "/sys/class/leds/red/device/grpfreq";
+
+char const*const RED_PWM_FILE
+        = "/sys/class/leds/red/device/grppwm";
 
 char const*const RED_BLINK_FILE
-        = "/sys/class/leds/red/blink";
+        = "/sys/class/leds/red/device/blink";
 
-char const*const GREEN_BLINK_FILE
-        = "/sys/class/leds/green/blink";
-
-char const*const BLUE_BLINK_FILE
-        = "/sys/class/leds/blue/blink";
-
-char const*const RED_RAMP_MS_FILE
-        = "/sys/class/leds/red/ramp_step_ms";
-
-char const*const GREEN_RAMP_MS_FILE
-        = "/sys/class/leds/green/ramp_step_ms";
-
-char const*const BLUE_RAMP_MS_FILE
-        = "/sys/class/leds/blue/ramp_step_ms";
-
-char const*const RED_DUTY_STEPS_FILE
-        = "/sys/class/leds/red/duty_pcts";
-
-char const*const GREEN_DUTY_STEPS_FILE
-        = "/sys/class/leds/green/duty_pcts";
-
-char const*const BLUE_DUTY_STEPS_FILE
-        = "/sys/class/leds/blue/duty_pcts";
 
 // Number of steps to use in the duty array
 #define LED_DUTY_STEPS       60
@@ -177,7 +160,7 @@ set_speaker_light_locked(struct light_device_t* dev,
             break;
         case LIGHT_FLASH_NONE:
         default:
-            onMS = 0;
+            onMS = 255;
             offMS = 0;
             break;
     }
