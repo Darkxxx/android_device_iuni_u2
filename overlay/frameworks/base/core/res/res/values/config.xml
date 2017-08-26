@@ -385,14 +385,11 @@
     <bool name="config_enableAutoPowerModes">true</bool>
 
     <!-- Disable button backlight settings. -->
-    <integer name="config_buttonBrightnessSettingDefault">40</integer>
+    <integer name="config_buttonBrightnessSettingDefault">255</integer>
 
     <!-- Boolean indicating whether Hotspot 2.0/Passpoint and ANQP queries is enabled -->
     <bool translatable="false" name="config_wifi_hotspot2_enabled">true</bool>
 
-    <!-- Flag specifying whether VoLTE is available on device -->
-    <bool name="config_device_volte_available">true</bool>
-    
     <!-- Flag indicating if the speed up audio on mt call code should be executed -->
     <bool name="config_speed_up_audio_on_mt_calls">true</bool>
 
