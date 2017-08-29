@@ -56,7 +56,7 @@
         <value>1574000</value> <!-- 1574.0 MHz CPU speed -->
         <value>1728000</value> <!-- 1728.0 MHz CPU speed -->
         <value>1958400</value> <!-- 1958.4 MHz CPU speed -->
-        <value>2150400</value> <!-- 2150.6 MHz CPU speed -->
+        <value>2150400</value> <!-- 2150.4 MHz CPU speed -->
     </array>
     <!-- Power consumption when CPU is idle -->
     <item name="cpu.idle">3.2</item>
@@ -76,7 +76,7 @@
         <value>266.4</value> <!-- 1574.0 MHz CPU speed -->
         <value>287.7</value> <!-- 1728.0 MHz CPU speed -->
         <value>325.7</value> <!-- 1958.4 MHz CPU speed -->
-        <value>386.2</value> <!-- 2150.6 MHz CPU speed -->
+        <value>386.2</value> <!-- 2150.4 MHz CPU speed -->
     </array>
 
     <!-- This is the battery capacity in mAh -->
