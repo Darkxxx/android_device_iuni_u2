@@ -38,6 +38,7 @@ PRODUCT_COPY_FILES += \
     device/iuni/u2/rootdir/init.qcom.syspart_fixup.sh:root/init.qcom.syspart_fixup.sh \
     device/iuni/u2/rootdir/init.qcom.usb.rc:root/init.qcom.usb.rc \
     device/iuni/u2/rootdir/fstab.qcom:root/fstab.qcom \
+    device/iuni/u2/rootdir/init.class_main.sh:root/init.class_main.sh \
     device/iuni/u2/rootdir/ueventd.qcom.rc:root/ueventd.qcom.rc
 
 # system/etc files
@@ -102,7 +103,8 @@ DEVICE_PACKAGE_OVERLAYS := \
 
 # Camera
 PRODUCT_PACKAGES += \
-    libcamera_parameters_ext \
+    Snap \
+    camera.msm8974 \
     libqomx_core \
     libmmcamera_interface \
     libmmjpeg_interface \
@@ -119,6 +121,7 @@ PRODUCT_PACKAGES += \
 
 # Data
 PRODUCT_PACKAGES += \
+    libcnefeatureconfig \
     libxml2 \
     librmnetctl
 
@@ -146,9 +149,6 @@ PRODUCT_PACKAGES += \
     libnl_2 \
     ethertypes
 
-PRODUCT_PACKAGES += \
-    Snap
-    
 # Graphics
 PRODUCT_PACKAGES += \
     copybit.msm8974 \
@@ -258,7 +258,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # QMI
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.data.tcpackprio.enable=true \
     persist.data.mode=concurrent \
     persist.data.netmgrd.qos.enable=true \
     rild.libpath=/vendor/lib/libril-qc-qmi-1.so \
@@ -282,9 +281,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # qcom
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.qc.sdk.camera.facialproc=true \
-    ro.qc.sdk.gestures.camera=false \
-    ro.qti.sdk.sensors.gestures=true \
     camera.disable_zsl_mode=1 \
     camera2.portability.force_api=1 \
     media.stagefright.legacyencoder=true \
@@ -335,7 +331,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.android.mobiledata=true \
     ro.regionalization.support=yes \
     telephony.lteOnCdmaDevice=1 \
-    net.tethering.noprovisioning=true \
     ro.product.first_api_level=19 \
     persist.demo.hdmirotationlock=false \
     ro.com.google.gmsversion=7.1_r7 \
