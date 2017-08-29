@@ -59,7 +59,7 @@ char const*const BLUE_LED_FILE
 char const*const LCD_FILE
         = "/sys/class/leds/lcd-backlight/brightness";
 
-const char *const BUTTONS_FILE
+char const*const BUTTONS_FILE
         = "/sys/class/leds/kpdbl-pwm-1/brightness";
 
 char const*const RED_BLINK_FILE
@@ -253,13 +253,9 @@ set_light_buttons(struct light_device_t *dev,
 {
     int err = 0;
     int brightness = rgb_to_brightness(state);
-
     pthread_mutex_lock(&g_lock);
-
     err = write_int(BUTTONS_FILE, brightness);
-
     pthread_mutex_unlock(&g_lock);
-
     return err;
 }
 
@@ -369,6 +365,6 @@ struct hw_module_t HAL_MODULE_INFO_SYM = {
     .version_minor = 0,
     .id = LIGHTS_HARDWARE_MODULE_ID,
     .name = "lights module",
-    .author = "Google, Inc., CyanogenMod",
+    .author = "Google, Inc., LineageOS",
     .methods = &lights_module_methods,
 };
