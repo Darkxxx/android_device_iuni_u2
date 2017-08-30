@@ -60,7 +60,7 @@ char const*const LCD_FILE
         = "/sys/class/leds/lcd-backlight/brightness";
 
 char const*const BUTTONS_FILE
-        = "/sys/class/leds/kpdbl-pwm-1/brightness";
+        = "/sys/class/leds/button-backlight/brightness";
 
 char const*const RED_BLINK_FILE
         = "/sys/class/leds/red/blink";
