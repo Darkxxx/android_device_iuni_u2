@@ -152,6 +152,7 @@ on boot
     #venus
     write /sys/bus/msm_subsys/devices/subsys2/restart_level "related"
     
+    # Leds
     chown system system /sys/class/leds/keyboard-backlight/brightness
     chown system system /sys/class/leds/lcd-backlight/brightness
     chown system system /sys/class/leds/button-backlight/brightness
@@ -162,18 +163,20 @@ on boot
     chown system system /sys/class/leds/red/device/grpfreq
     chown system system /sys/class/leds/red/device/grppwm
     chown system system /sys/class/leds/red/device/blink
-    chown system system /sys/class/leds/kpdbl-pwm-1/brightness
-
+    
     # Torch
-    chown system camera /sys/class/leds/led:flash_torch/brightness
+    chown system system /sys/class/leds/led:flash_torch/brightness
     chmod 0666 /sys/class/leds/led:flash_torch/brightness
 
     # Touchscreen
-    chown system radio /sys/devices/platform/tp_wake_switch/double_wake
-    chmod 0666 /sys/devices/platform/tp_wake_switch/double_wake
-
-    #Gionee xuna add for autommitest, 20140724
-    chown 0777 /sys/class/leds/kpdbl-pwm-1/brightness
+    chown system system /sys/devices/platform/tp_wake_switch/double_wake
+    chmod 0777 /sys/devices/platform/tp_wake_switch/double_wake
+    
+    chown system system /sys/devices/platform/tp_wake_switch/gesture_wake
+    chmod 0777 /sys/devices/platform/tp_wake_switch/gesture_wake
+    
+    # Gionee zhoucs add lcd cabc 20140731 begin
+    chmod 0666 /sys/class/leds/lcd-cabc/brightness
 
     # port-bridge
     chmod 0660 /dev/smd0
@@ -335,7 +338,7 @@ service usbhub_init /system/bin/usbhub_init
    user root
    disabled
    oneshot
-
+   
 on property:bluetooth.isEnabled=true
     start btwlancoex
     write /sys/class/bluetooth/hci0/idle_timeout 7000
@@ -618,6 +621,11 @@ service profiler_daemon /system/bin/profiler_daemon
     user root
     group root
     disabled
+    
+service qcom-c_main-sh /system/bin/sh /init.class_main.sh
+    class main
+    user root
+    oneshot
 
 service hcidump /system/bin/sh /system/etc/hcidump.sh
     user bluetooth
