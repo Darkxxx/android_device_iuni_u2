@@ -125,9 +125,8 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/iuni/u2
 -include vendor/qcom/binaries/msm8974/graphics/BoardConfigVendor.mk
 
 # Charger
-BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
-BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
+BACKLIGHT_PATH := "/sys/class/leds/button-backlight/brightness"
 HEALTHD_FORCE_BACKLIGHT_CONTROL := true
 HEALTHD_BACKLIGHT_ON_LEVEL := 125
 
