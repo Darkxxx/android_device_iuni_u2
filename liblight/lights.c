@@ -171,7 +171,6 @@ set_speaker_light_locked(struct light_device_t* dev,
 
     switch (state->flashMode) {
         case LIGHT_FLASH_TIMED:
-        case LIGHT_FLASH_HARDWARE:
             onMS = state->flashOnMS;
             offMS = state->flashOffMS;
             break;
@@ -185,7 +184,7 @@ set_speaker_light_locked(struct light_device_t* dev,
     colorRGB = state->color;
 
 #if 0
-    ALOGD("set_light_locked: mode %d, colorRGB=%08X, onMS=%d, offMS=%d\n",
+    ALOGD("set_light_locked: mode=%d, colorRGB=%08X, onMS=%d, offMS=%d\n",
             state->flashMode, colorRGB, onMS, offMS);
 #endif
 
