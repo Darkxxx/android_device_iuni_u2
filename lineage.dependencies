@@ -4,6 +4,9 @@
    "target_path": "device/qcom/common"
  },
  {
+   "repository": "android_kernel_gm_e7",
+   "target_path": "kernel/gm/e7"
+ },
    "repository": "android_external_stlport",
    "target_path": "external/stlport"
  }
