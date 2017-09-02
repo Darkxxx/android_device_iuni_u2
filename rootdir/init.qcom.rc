@@ -164,20 +164,33 @@ on boot
     chown system system /sys/class/leds/red/device/grppwm
     chown system system /sys/class/leds/red/device/blink
     
-    # Torch
-    chown system system /sys/class/leds/led:flash_torch/brightness
+    # Button backliğt
+    chmod 0777 /sys/class/leds/button-backlight/brightness
+    
+    # Torch 1
+    chown system camera /sys/class/leds/led:flash_torch_0/brightness
+    chmod 0644 /sys/class/leds/led:flash_torch/brightness
+    
+    # Torch 2
+    chown system camera /sys/class/leds/led:flash_torch_1/brightness
+    chmod 0644 /sys/class/leds/led:flash_torch/brightness
+    
+    # Torch 3
+    chown system camera /sys/class/leds/led:flash_torch/brightness
     chmod 0666 /sys/class/leds/led:flash_torch/brightness
+    
+    # Torch 4
+    chown system camera /sys/class/leds/torch-light/brightness
+    chmod 0666 /sys/class/leds/torch-light/brightness
 
-    # Touchscreen
+    # Touchscreen 1
     chown system system /sys/devices/platform/tp_wake_switch/double_wake
     chmod 0777 /sys/devices/platform/tp_wake_switch/double_wake
     
+    # Touchscreen 2
     chown system system /sys/devices/platform/tp_wake_switch/gesture_wake
     chmod 0777 /sys/devices/platform/tp_wake_switch/gesture_wake
-    
-    # Gionee zhoucs add lcd cabc 20140731 begin
-    chmod 0666 /sys/class/leds/lcd-cabc/brightness
-
+ 
     # port-bridge
     chmod 0660 /dev/smd0
     chown system system /dev/smd0
@@ -245,11 +258,7 @@ on post-fs-data
     # NFC: create data/nfc for nv storage
     mkdir /data/nfc 0770 nfc nfc
     mkdir /data/nfc/param 0770 nfc nfc
-    chmod 0600 /dev/bcm2079x
-    chown nfc nfc /dev/bcm2079x
-    chown nfc nfc /data/nfc
-    chown nfc nfc /data/nfc/param
-
+    
     # Create directory for TZ Apps
     mkdir /data/misc/qsee 0770 system system
 
@@ -258,9 +267,6 @@ on post-fs-data
 
     # Create directory used by audio subsystem
     mkdir /data/misc/audio 0770 audio audio
-
-    #Gionee xuna add for autommitest, 20140724
-    chmod 0777 /sys/class/leds/button-backlight/brightness
 
     # Create directory used by sensor subsystem
     mkdir /persist/sensors 0775 system root
@@ -316,10 +322,11 @@ on post-fs-data
 
     # Create folder for mm-qcamera-daemon
     mkdir /data/camera 0770 media camera
- 
+    
     # Camera sockets
     mkdir /data/misc/camera 0770 camera camera
-    
+    mkdir /data/fdAlbum 0770 media fdAlbum
+
     setprop qcom.audio.init complete
     
     setprop vold.post_fs_data_done 1
@@ -455,7 +462,7 @@ service sensors /system/bin/sensors.qcom
 # Adjust socket buffer to enlarge TCP receive window for high bandwidth
 # but only if ro.data.large_tcp_window_size property is set.
 on property:ro.data.large_tcp_window_size=true
-    write /proc/sys/net/ipv4/tcp_adv_win_scale  2
+    write /proc/sys/net/ipv4/tcp_adv_win_scale 2
 
 service btwlancoex /system/bin/sh /system/etc/init.qcom.coex.sh
     class late_start
