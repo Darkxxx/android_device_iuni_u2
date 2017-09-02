@@ -169,11 +169,11 @@ on boot
     
     # Torch 1
     chown system camera /sys/class/leds/led:flash_torch_0/brightness
-    chmod 0644 /sys/class/leds/led:flash_torch/brightness
+    chmod 0644 /sys/class/leds/led:flash_torch_0/brightness
     
     # Torch 2
     chown system camera /sys/class/leds/led:flash_torch_1/brightness
-    chmod 0644 /sys/class/leds/led:flash_torch/brightness
+    chmod 0644 /sys/class/leds/led:flash_torch_1/brightness
     
     # Torch 3
     chown system camera /sys/class/leds/led:flash_torch/brightness
@@ -181,7 +181,7 @@ on boot
     
     # Torch 4
     chown system camera /sys/class/leds/torch-light/brightness
-    chmod 0666 /sys/class/leds/torch-light/brightness
+    chmod 0644 /sys/class/leds/torch-light/brightness
 
     # Touchscreen 1
     chown system system /sys/devices/platform/tp_wake_switch/double_wake
