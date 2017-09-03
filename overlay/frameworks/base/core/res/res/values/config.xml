@@ -242,6 +242,7 @@
         <item>255</item>
         <item>255</item>
     </integer-array>
+    
     <integer-array name="config_autoBrightnessKeyboardBacklightValues">
         <item>255</item>
         <item>255</item>
@@ -374,7 +375,6 @@
         <item>774</item>
         <item>1036</item>
     </integer-array>
-    -->
 
     <!-- Base "touch slop" value used by ViewConfiguration as a
          movement threshold where scrolling should begin. -->
@@ -422,7 +422,7 @@
     <string name="config_wifi_tcp_buffers" translatable="false">524288,2097152,4194304,262144,524288,1048576</string>
 
     <!-- Our modem doesn't support this query yet -->
-<string translatable="false" name="config_radio_access_family">GSM | WCDMA </string>
+<string translatable="false" name="config_radio_access_family">GSM | WCDMA</string>
 
     <!-- Enable blur support -->
     <bool name="config_ui_blur_enabled">true</bool>
@@ -462,5 +462,11 @@
     
     <!-- Boolean indicating whether we want button brightness support -->
     <bool name="config_button_brightness_support">true</bool>
-    
+
+    <!-- Should the pinner service pin the Camera application? -->
+    <bool name="config_pinnerCameraApp">true</bool>
+
+    <!-- Should the pinner service pin the Camera application? -->
+    <bool name="singleStageCameraKey">true</bool>
+
 </resources>
