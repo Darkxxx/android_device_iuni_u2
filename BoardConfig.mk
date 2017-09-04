@@ -137,10 +137,6 @@ TARGET_PROVIDES_LIBLIGHT := true
 # keymaster
 TARGET_KEYMASTER_WAIT_FOR_QSEE := true
 
-# Qualcomm support
-BOARD_USES_QCOM_HARDWARE := true
-BOARD_USES_QC_TIME_SERVICES := true
-
 # selinux
 include device/qcom/sepolicy/sepolicy.mk
 
