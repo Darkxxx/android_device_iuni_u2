@@ -184,7 +184,7 @@ set_speaker_light_locked(struct light_device_t* dev,
     colorRGB = state->color;
 
 #if 0
-    ALOGD("set_light_locked: mode=%d, colorRGB=%08X, onMS=%d, offMS=%d\n",
+    ALOGD("set_speaker_light_locked: mode %d, colorRGB=%08X, onMS=%d, offMS=%d\n",
             state->flashMode, colorRGB, onMS, offMS);
 #endif
 
@@ -195,10 +195,6 @@ set_speaker_light_locked(struct light_device_t* dev,
     write_int(RED_LED_FILE, red);
     write_int(GREEN_LED_FILE, green);
     write_int(BLUE_LED_FILE, blue);
- 
-    write_on_off(RED_TIMEOUT_FILE, onMS, offMS);
-    write_on_off(GREEN_TIMEOUT_FILE, onMS, offMS);
-    write_on_off(BLUE_TIMEOUT_FILE, onMS, offMS);
 
     if (onMS > 0 && offMS > 0) {
         char dutystr[(3+1)*LED_DUTY_STEPS+1];
@@ -334,8 +330,6 @@ static int open_lights(const struct hw_module_t* module, char const* name,
         set_light = set_light_battery;
     else if (0 == strcmp(LIGHT_ID_ATTENTION, name))
         set_light = set_light_attention;
-    else if (0 == strcmp(LIGHT_ID_BUTTONS, name))
-        set_light = set_light_touchkeys;
     else
         return -EINVAL;
 
