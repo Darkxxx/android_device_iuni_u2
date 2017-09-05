@@ -34,6 +34,7 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 # u2 Init files
 PRODUCT_COPY_FILES += \
+    device/iuni/u2/rootdir/init.rc:root/init.rc \
     device/iuni/u2/rootdir/init.qcom.rc:root/init.qcom.rc \
     device/iuni/u2/rootdir/init.qcom.syspart_fixup.sh:root/init.qcom.syspart_fixup.sh \
     device/iuni/u2/rootdir/init.qcom.usb.rc:root/init.qcom.usb.rc \
@@ -104,7 +105,7 @@ DEVICE_PACKAGE_OVERLAYS := \
 # Camera
 PRODUCT_PACKAGES += \
     Snap \
-    camera.msm8974 \
+    camera.u2 \
     libqomx_core \
     libmmcamera_interface \
     libmmjpeg_interface \
@@ -223,6 +224,9 @@ PRODUCT_COPY_FILES += \
     
 # NFC packages
 PRODUCT_PACKAGES += \
+    libnfc \
+    libnfc_jni \
+    com.android.nfc_extras \
     nfc_nci.bcm2079x.default \
     NfcNci \
     Tag
