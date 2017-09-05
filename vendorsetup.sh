@@ -1,0 +1,3 @@
+add_lunch_combo lineage_u2-user
+add_lunch_combo lineage_u2-userdebug
+add_lunch_combo lineage_u2-eng
