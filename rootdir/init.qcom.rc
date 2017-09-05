@@ -28,8 +28,8 @@ on init
     mkdir /persist 0771 system system
     mkdir /firmware 0771 system system
     symlink /sdcard /storage/sdcard0
-    symlink /storage/839D-DE02 /storage\sdcard0
-    symlink /storage/839D-DE02 /storage\sdcard1
+    symlink /storage/839D-DE02 /storage/sdcard0
+    symlink /storage/839D-DE02 /storage/sdcard1
 
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
@@ -148,36 +148,41 @@ on boot
     write /sys/bus/msm_subsys/devices/subsys1/restart_level "related"
     #venus
     write /sys/bus/msm_subsys/devices/subsys2/restart_level "related"
-    
+
     # Leds
-    chown system system /sys/class/leds/keyboard-backlight/brightness
+    chown system system /sys/class/leds/lcd-cabc/brightness
     chown system system /sys/class/leds/lcd-backlight/brightness
     chown system system /sys/class/leds/button-backlight/brightness
-    chown system system /sys/class/leds/jogball-backlight/brightness
     chown system system /sys/class/leds/red/brightness
     chown system system /sys/class/leds/green/brightness
     chown system system /sys/class/leds/blue/brightness
-    chown system system /sys/class/leds/red/device/grpfreq
-    chown system system /sys/class/leds/red/device/grppwm
-    chown system system /sys/class/leds/red/device/blink
+    chown system system /sys/class/leds/red/blink
+    chown system system /sys/class/leds/green/blink
+    chown system system /sys/class/leds/blue/blink
+    chown system system /sys/class/leds/red/ramp_step_ms
+    chown system system /sys/class/leds/green/ramp_step_ms
+    chown system system /sys/class/leds/blue/ramp_step_ms
+    chown system system /sys/class/leds/red/duty_pcts
+    chown system system /sys/class/leds/green/duty_pcts
+    chown system system /sys/class/leds/blue/duty_pcts
     
     # Button backliğt
     chmod 0777 /sys/class/leds/button-backlight/brightness
     
     # Torch 1
-    chown system camera /sys/class/leds/led:flash_torch_0/brightness
+    chown system system /sys/class/leds/led:flash_torch_0/brightness
     chmod 0644 /sys/class/leds/led:flash_torch_0/brightness
     
     # Torch 2
-    chown system camera /sys/class/leds/led:flash_torch_1/brightness
+    chown system system /sys/class/leds/led:flash_torch_1/brightness
     chmod 0644 /sys/class/leds/led:flash_torch_1/brightness
     
     # Torch 3
-    chown system camera /sys/class/leds/led:flash_torch/brightness
+    chown system system /sys/class/leds/led:flash_torch/brightness
     chmod 0666 /sys/class/leds/led:flash_torch/brightness
     
     # Torch 4
-    chown system camera /sys/class/leds/torch-light/brightness
+    chown system system /sys/class/leds/torch-light/brightness
     chmod 0644 /sys/class/leds/torch-light/brightness
 
     # Touchscreen 1
@@ -190,6 +195,9 @@ on boot
     
     # Gionee zhoucs add lcd cabc 20140731 begin
     chmod 0666 /sys/class/leds/lcd-cabc/brightness
+ 
+    # Gionee zhoucs add lcd backlight 20140731 begin
+    chmod 0644 /sys/class/leds/lcd-backlight/brightness
  
     # port-bridge
     chmod 0660 /dev/smd0
